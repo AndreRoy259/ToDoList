@@ -70,6 +70,8 @@ function deleteCheck(event) {
 
 function filterTodo(event) {
   const todos = todoList.childNodes;
+
+  //TODO: Iterate over each todo and display it or not
   todos.forEach(function (todo) {
     switch (event.target.value) {
       case "all":
@@ -94,26 +96,31 @@ function filterTodo(event) {
 }
 
 function saveLocalTodos(todo) {
-  //TODO: Check if there isn't already somethings in the todos
   let todos;
+
+  //TODO: Check if there isn't already somethings in the todos
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
+
+  //TODO: Add the Todo to the Todos list and save it
   todos.push(todo);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function getTodos() {
-  //TODO: Check if there isn't already somethings in the todos
   let todos;
+
+  //TODO: Check if there isn't already somethings in the todos
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
 
+  //TODO: Iterate over each todo and build the list of todos
   todos.forEach(function (todo) {
     //* Create Div
     const todoDiv = document.createElement("div");
@@ -143,15 +150,17 @@ function getTodos() {
 }
 
 function deleteLocalTodo(todo) {
-  //TODO: Check if there isn't already somethings in the todos
   let todos;
+
+  //TODO: Check if there isn't already somethings in the todos
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
 
-    const todoIndex = todos.indexOf(todo.children[0].innerText);
-    todos.splice(todoIndex, 1);
-    localStorage.setItem('todos', JSON.stringify(todos));
+  //TODO: Remove the Todo from the Todos list and save it
+  const todoIndex = todos.indexOf(todo.children[0].innerText);
+  todos.splice(todoIndex, 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
